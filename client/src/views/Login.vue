@@ -33,23 +33,23 @@ hr {
             <div class="px-[58px]">
                 <form action="">
                     <div class="">
-                        <input type="text" name="idcard" v-model="idcard" placeholder="idcard" class="2xl:h-[50px] xl:h-[45px] lg:h-[37px] bg-[#F9F9F9] text-[#111727] xl:text-lg lg:text-md sm:text-sm w-[36%] p-2.5 pl-16 rounded-[7px]
+                        <input type="text" name="idcard" v-model="idcard" placeholder="idcard" class="h-[37px] bg-[#F9F9F9] text-[#111727] text-md w-[36%] p-2.5 pl-16 rounded-[7px]
                                             focus:ring-2 focus:outline-none focus:ring-[#111727] ">
                         <hr class="w-[36%]">
                         <img src="../assets/idcard.png"
-                            class="absolute 2xl:mt-[-42px] xl:mt-[-40px] lg:mt-[-37px] pl-6 pointer-events-none">
+                            class="absolute mt-[-37px] pl-6 pointer-events-none">
                     </div>
 
                     <div class="mt-[50px] ">
-                        <input :type="show === true ? 'text' : 'password'" name="password" placeholder="password" class="2xl:h-[50px] xl:h-[45px]   lg:h-[37px] bg-[#F9F9F9] rounded-[7px] text-[#111727] xl:text-lg lg:text-md sm:text-sm p-2.5 pl-16 w-[36%]
+                        <input :type="show === true ? 'text' : 'password'" name="password" placeholder="password" class="h-[37px] bg-[#F9F9F9] rounded-[7px] text-[#111727]  text-md  p-2.5 pl-16 w-[36%]
                                             focus:ring-2 focus:outline-none focus:ring-[#111727] ">
                         <hr class="w-[36%]">
                         <img src="../assets/key.png"
-                            class="absolute 2xl:mt-[-42px] xl:mt-[-40px] lg:mt-[-37px] pl-6 pointer-events-none">
+                            class="absolute mt-[-37px] pl-6 pointer-events-none">
                         <img src="../assets/Union.png" v-if="show" @click="show = !show"
-                            class="absolute 2xl:mt-[-42px] xl:mt-[-40px] lg:mt-[-37px] mr-10  left-[34%] ">
+                            class="absolute  mt-[-37px] mr-10  left-[34%] ">
                         <img src="../assets/eye.png" v-else @click="show = !show"
-                            class="absolute 2xl:mt-[-42px] xl:mt-[-40px] lg:mt-[-37px] left-[34%] w-[27px] h-[24px] pr-1 ">
+                            class="absolute mt-[-37px] left-[34%] w-[27px] h-[24px] pr-1 ">
                     </div>
                 </form>
             </div>

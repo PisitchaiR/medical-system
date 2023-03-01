@@ -7,7 +7,6 @@
 
 body {
     scroll-behavior: smooth;
-    background-image: url('https://sv1.picz.in.th/images/2023/03/01/eBeenR.jpg');
 }
 
 .underline1 {
@@ -55,7 +54,7 @@ hr {
     <div>
         <Nav />
 
-        <div class="mt-5 mx-auto xl:px-[200px] lg:px-[150px] md:px-[100px]">
+        <div class="mt-5 mx-auto  px-[100px] ">
             <section>
                 <div class="relative flex">
                     <div class="absolute z-[-5] right-0 w-4/5 mt-[-50px]">
@@ -103,9 +102,12 @@ hr {
                         class="mt-[50px] transition duration-300 group-hover:scale-y-[1] hover:!scale-y-110 cursor-pointer overflow-hidden ">
                         <img :src="item.docPic" class="bg-slate-800 z-[-10] object-cover  ">
                         <div
-                            class=" px-3 text-white bg-slate-800 w-[100%] h-100% opacity-0 transition-opacity group-hover:!opacity-100 ">
-                            <p class="underline3 absolute mt-[-110px] text-md">{{ item.doc_name }}</p>
-                            <div class="details -bottom-10">
+                            class=" px-3 text-white ">
+                            <div class="translate-y-[50px] group-hover:translate-y-[-10px] group-hover:duration-300 hover:!translate-y-[-10px] ">
+                                <p class="underline3 absolute  mt-[-110px] text-md">{{ item.doc_name }}</p>
+
+                            </div>
+                            <div class="group/2 bg-slate-800 w-[100%] h-100% -bottom-10 opacity-0 transition-opacity group-hover:opacity-0  group-hover/2:!opacity-100">
                                 <img class="absolute mt-[-71px]" :src="item.maskk">
                                 <p class="absolute mt-[-70px]  pl-7"> {{ item.hos_name }}</p>
                                 <p class="absolute mt-[-40px]  text-sm">ประวัติ >></p>

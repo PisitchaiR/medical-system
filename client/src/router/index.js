@@ -18,6 +18,24 @@ const routes = [{
         name: "logiregistern",
         component: register,
     },
+    {
+        path: "/pay1",
+        name: "pay1",
+        component: () =>
+            import ("../views/Prescription.vue"),
+    },
+    {
+        path: "/pay2",
+        name: "pay2",
+        component: () =>
+            import ("../views/PatienPay.vue"),
+    },
+    {
+        path: "/medi",
+        name: "medi",
+        component: () =>
+            import ("../views/Allmedi.vue"),
+    }
 ];
 
 const router = createRouter({
