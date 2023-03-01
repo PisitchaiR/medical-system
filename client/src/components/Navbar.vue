@@ -2,6 +2,7 @@
 template {
   scroll-behavior: smooth;
 }
+
 .underline-1 {
   background-image: linear-gradient(90deg, rgb(0, 0, 0), #000000);
   background-size: 0% 3px;
@@ -11,10 +12,12 @@ template {
   transition: background-size 500ms ease;
   padding-bottom: 10px;
 }
+
 .underline-1:hover {
   background-size: 100% 3px;
   background-position: left bottom;
 }
+
 .underline-2 {
   background-image: linear-gradient(90deg, #111727, #ff5757);
   background-size: 100% 3px;
@@ -22,6 +25,7 @@ template {
   background-position: left bottom;
   text-decoration: none;
 }
+
 .curcer {
   cursor: default;
 }
@@ -37,36 +41,23 @@ template {
         </div>
         <div class="flex">
           <div class="mr-[47px] text-center">
-            <router-link
-              style="cursor: pointer; text-decoration: none"
-              class="text-[20px] underline-1 mt-[3px]"
-              to="/"
-            >
+            <router-link style="cursor: pointer; text-decoration: none" class="text-[20px] underline-1 mt-[3px]" to="/">
               Home
             </router-link>
           </div>
           <div class="mr-[47px]">
-            <router-link
-              style="cursor: pointer; text-decoration: none"
-              class="text-[20px] underline-1 mt-[3px]"
-              to="/pay1"
-            >
+            <router-link style="cursor: pointer; text-decoration: none" class="text-[20px] underline-1 mt-[3px]"
+              to="/pay1">
               Record
             </router-link>
           </div>
 
           <div class="mr-[47px]">
-            <router-link
-              style="cursor: pointer; text-decoration: none"
-              class="text-[20px] underline-1 mt-[3px]"
-              to="/pay1"
-            >
+            <router-link style="cursor: pointer; text-decoration: none" class="text-[20px] underline-1 mt-[3px]"
+              to="/pay1">
               Prescript
             </router-link>
-            <div
-              v-if="isOpen"
-              class="border-[1px] bg-[#f5f6f8] border-black rounded-md absolute mt-8"
-            >
+            <div v-if="isOpen" class="border-[1px] bg-[#f5f6f8] border-black rounded-md absolute mt-8">
               <div class="flex p-3">
                 <img src="../assets/User.png" alt="" class="mr-[5px]" />
                 <a href="#" class="curcer">{{ UserName }}</a>
