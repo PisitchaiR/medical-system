@@ -22,7 +22,7 @@ hr {
     <div class="mt-[100px]">
         <div class="bg-dark-800 border-[1px] rounded-xl bg-[#F3F3F3] h-[480px] flex justify-between ">
             <div class="mt-[30px]">
-                <b class="underline1 text-xl ml-10 ">Prescript</b>
+                <b class="underline1 text-2xl ml-10 ">Prescript</b>
             </div>
             <div class="absolute z-[0] right-0 w-4/5 mt-[120px]">
                 <img src="../assets/banner2.png" class="w-[500px] h-[309px] ">

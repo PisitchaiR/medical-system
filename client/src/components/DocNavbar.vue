@@ -47,7 +47,7 @@ template {
           </div>
           <div class="mr-[47px]">
             <router-link style="cursor: pointer; text-decoration: none" class="text-[20px] underline-1 mt-[3px]"
-              to="/pay1">
+              to="/allmedi">
               Medicine
             </router-link>
           </div>

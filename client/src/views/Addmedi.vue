@@ -12,7 +12,6 @@
           <a href="#" class="curcer">{{ value }}</a>
         </div>
       </div>
-
       <!-- cartorder -->
       <div class="py-[100px] px-[30px]">
         <div>

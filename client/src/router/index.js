@@ -22,17 +22,17 @@ const routes = [
   {
     path: "/pay1",
     name: "pay1",
-    component: () => import("../views/Prescription.vue"),
+    component: () => import("../views/preScription.vue"),
   },
   {
     path: "/pay2",
     name: "pay2",
-    component: () => import("../views/PatienPay.vue"),
+    component: () => import("../views/patienPay.vue"),
   },
   {
     path: "/addmedi",
     name: "add",
-    component: () => import("../views/Addmedi.vue"),
+    component: () => import("../views/addMedi.vue"),
   },
   {
     path: "/allmedi",
@@ -43,6 +43,11 @@ const routes = [
     path: "/docinfo",
     name: "docinfo",
     component: () => import("../views/docinfo.vue"),
+  },
+  {
+    path: "/doc",
+    name: "doc",
+    component: () => import("../views/docHome.vue"),
   },
 ];
 
