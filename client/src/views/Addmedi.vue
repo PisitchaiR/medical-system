@@ -57,11 +57,11 @@
               </tr>
             </tfoot>
           </table>
-          <button v-if="this.cart != ![]" @click="past"
+          <button @click="past"
             class="w-full bg-green-800 text-white hover:bg-green-400 hover:text-black mt-5 rounded-lg h-[40px]">จ่ายยา</button>
         </div>
-
       </div>
+
 
       <!-- cardmedicine -->
       <div class=" px-2 pb-[50px]">
@@ -87,9 +87,6 @@
               </button>
             </div>
           </div>
-
-
-
         </div>
 
       </div>
@@ -245,7 +242,8 @@ export default {
         return a + (b.quantity);
       }, 0);
     }
-  }
+  },
+
 
 
 };

@@ -29,25 +29,25 @@
                   class="text-sm text-gray-700 uppercase bg-white dark:bg-gray-800 border-collapse border border-slate-400 dark:text-gray-400">
                   <tr>
                     <th scope="col" class="px-6 py-5 border-collapse border border-slate-400">
-                      Order
+                      รายการยา
                     </th>
                     <th scope="col" class="px-6 py-5 border-collapse border border-slate-400 text-end">
-                      Qty
+                      จำนวนชิ้น
                     </th>
-                    <th scope="col" class="px-6 py-5 text-end">Price</th>
+                    <th scope="col" class="px-6 py-5 text-end">ราคาต่อชิ้น</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="bg-gray-100 dark:bg-gray-700" v-for="(value, index) in prescription" :key="index">
+                  <tr class="bg-gray-100 dark:bg-gray-700" v-for="(value, index) in cart" :key="index">
                     <th scope="row"
                       class="px-6 py-4 font-medium border-collapse border border-slate-400 text-gray-900 dark:text-white">
-                      {{ value.order }}
+                      {{ value.name }}
                     </th>
-                    <td class="px-6 py-4 border-collapse border border-slate-400">
+                    <td class="px-6 py-4 border-collapse border border-slate-400 text-end">
                       {{ value.quantity }}
                     </td>
-                    <td class="px-6 py-4 border-collapse border border-slate-400">
-                      {{ value.Price }} บาท
+                    <td class="px-6 py-4 border-collapse border border-slate-400 text-end">
+                      {{ value.price }} บาท
                     </td>
                   </tr>
                 </tbody>
@@ -60,7 +60,7 @@
                       {{ sumquantity }}
                     </td>
                     <td class="px-6 py-3 text-end border-collapse border border-slate-400">
-                      {{ sumtotal }} บาท
+                      {{ totalPrice }} บาท
                     </td>
                   </tr>
                 </tfoot>
@@ -95,21 +95,25 @@ export default {
   }),
   computed: {
     sumPrice() {
-      return this.prescription.reduce((a, b) => {
-        return a + (b.Price);
+      return this.cart.reduce((a, b) => {
+        return a + (b.price);
       }, 0);
     },
     sumquantity() {
-      return this.prescription.reduce((a, b) => {
+      return this.cart.reduce((a, b) => {
         return a + (b.quantity);
       }, 0);
     },
+    totalPrice() {
+      return this.cart.reduce((price, addmore) => price + addmore.price * addmore.quantity, 0)
+    }
 
   },
 
 
   created() {
     this.cart = JSON.parse(localStorage.getItem('cart'))
+
   },
 
 
