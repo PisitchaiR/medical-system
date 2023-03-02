@@ -92,8 +92,6 @@
       </div>
     </div>
 
-
-
   </div>
 </template>
 
@@ -229,7 +227,7 @@ export default {
     },
     past() {
       window.localStorage.setItem('cart', JSON.stringify(this.cart))
-
+      window.location.href = './'
     }
   },
   computed: {
