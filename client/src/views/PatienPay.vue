@@ -33,7 +33,7 @@
               IdentificationNumber
             </label>
             <input v-model="IdentificationNumber"
-              class="appearance-none block w-[600px] bg-white text-gray-700 border border-black rounded-xl  py-3 px-4 leading-tight  focus:outline-none focus:bg-white focus:border-gray-500"
+              class="appearance-none block w-[400px] bg-white text-gray-700 border border-black rounded-xl  py-3 px-4 leading-tight  focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-last-name" type="text">
           </div>
         </div>
@@ -42,12 +42,12 @@
 
         <div class="w-full lg:max-w-full lg:flex mb-[20px]">
           <div class="w-full md:w-1/2 px-3">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 " for="grid-last-name">
               Bank
             </label>
 
             <select id="countries"
-              class="  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 appearance-none block w-[600px] bg-white text-gray-700 border border-black rounded-xl  py-3 px-4 leading-tight  focus:outline-none focus:bg-white focus:border-gray-500">
+              class="w-[400px]  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 appearance-none block w-[600px] bg-white text-gray-700 border border-black rounded-xl  py-3 px-4 leading-tight  focus:outline-none focus:bg-white focus:border-gray-500">
               <option selected>
                 <h1> Choose a Bank</h1>
                 <img src="../assets/Arrow_drop_down_big1.png" alt="">
@@ -62,13 +62,13 @@
 
 
 
-        <div class="w-full lg:max-w-full lg:flex mb-[20px]">
-          <div class="w-full md:w-1/2 px-3">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+        <div class="w-full lg:max-w-full lg:flex mb-[20px] ">
+          <div class="w-full md:w-1/2 px-3 ">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 " >
               Name
             </label>
             <input v-model="name"
-              class="appearance-none block w-[600px] bg-white text-gray-700 border border-black rounded-xl  py-3 px-4 leading-tight  focus:outline-none focus:bg-white focus:border-gray-500"
+              class="appearance-none block w-[400px] bg-white text-gray-700 border border-black rounded-xl  py-3 px-4 leading-tight  focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-last-name" type="text">
           </div>
         </div>
@@ -76,8 +76,8 @@
 
         <div class="w-full lg:max-w-full lg:flex mb-[20px]">
           <div class="w-full md:w-1/2 px-3">
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-black" for="file_input">Upload
-              file</label>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-black" for="file_input">money transfer
+              slip</label>
             <input
               class="bg-white text-gray-700 border border-black rounded-xl  py-3 px-4 leading-tight  focus:outline-none focus:bg-white focus:border-gray-500"
               aria-describedby="file_input_help" id="file_input" type="file">
@@ -87,9 +87,9 @@
 
         <!-- button -->
         <div class="w-full lg:max-w-full lg:flex mb-[20px]">
-          <div class="w-full md:w-1/2 px-3">
-            <button class="bg-green-800 hover:bg-green-700 text-white font-bold py-2 px-8 rounded-xl">
-              Save
+          <div class="w-full md:w-1/2 px-3 ">
+            <button class="bg-black hover:bg-[#181818] text-white font-bold py-2 px-8 rounded-xl">
+              confirm
             </button>
           </div>
 

@@ -36,6 +36,7 @@
     text-decoration: none;
     width: 130px;
     padding-bottom: 5px;
+
 }
 
 hr {
@@ -47,7 +48,7 @@ hr {
 
 <template>
     <div>
-        <Nav />
+        <DocNav />
         <div class="mt-5 mx-auto xl:px-[200px] lg:px-[150px] md:px-[100px]">
             <section class="mb-[650px]">
                 <div class="relative flex ">
@@ -169,8 +170,7 @@ hr {
 </template>
 
 <script>
-import Nav from "../components/Navbar.vue"
-import Docnav from "../components/DocNavbar.vue"
+import DocNav from "../components/DocNavbar.vue"
 import docPicc from "../assets/doctor1.png"
 import mask from "../assets/Mask.png"
 import preBan from "../components/preBanner.vue"
@@ -233,7 +233,7 @@ export default {
 
     }),
     components: {
-        Nav, Docnav, preBan
+        DocNav, preBan
 
     }
 }

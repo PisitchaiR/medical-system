@@ -34,18 +34,16 @@ hr {
                 <form action="">
                     <div class="">
                         <input type="text" name="idcard" v-model="idcard" placeholder="idcard" class="h-[37px] bg-[#F9F9F9] text-[#111727] text-md w-[36%] p-2.5 pl-16 rounded-[7px]
-                                            focus:ring-2 focus:outline-none focus:ring-[#111727] ">
+                                                    focus:ring-2 focus:outline-none focus:ring-[#111727] ">
                         <hr class="w-[36%]">
-                        <img src="../assets/idcard.png"
-                            class="absolute mt-[-37px] pl-6 pointer-events-none">
+                        <img src="../assets/idcard.png" class="absolute mt-[-37px] pl-6 pointer-events-none">
                     </div>
 
                     <div class="mt-[50px] ">
                         <input :type="show === true ? 'text' : 'password'" name="password" placeholder="password" class="h-[37px] bg-[#F9F9F9] rounded-[7px] text-[#111727]  text-md  p-2.5 pl-16 w-[36%]
-                                            focus:ring-2 focus:outline-none focus:ring-[#111727] ">
+                                                    focus:ring-2 focus:outline-none focus:ring-[#111727] ">
                         <hr class="w-[36%]">
-                        <img src="../assets/key.png"
-                            class="absolute mt-[-37px] pl-6 pointer-events-none">
+                        <img src="../assets/key.png" class="absolute mt-[-37px] pl-6 pointer-events-none">
                         <img src="../assets/Union.png" v-if="show" @click="show = !show"
                             class="absolute  mt-[-37px] mr-10  left-[34%] ">
                         <img src="../assets/eye.png" v-else @click="show = !show"
@@ -57,7 +55,7 @@ hr {
             <div class="px-[58px] mt-[65px] space-y-3">
                 <button type="text"
                     class="button text-white bg-[#111727] rounded-[7px] text-lg p-3 text-center mr-2 mb-2 w-[36%]"
-                    @click="this.$router.push('/')">Login</button>
+                    @click="login">Login</button>
                 <div>
                     <p class="text-[#858A91] text-sm text-center w-[36%]">Don’t have an account? <button
                             @click="this.$router.push('register')" class="text-[#43474E] underline">Sign up free </button>
@@ -81,8 +79,36 @@ export default {
             pname: "W&N",
             idcard: '',
             password: '',
-            show: false
+            show: false,
+            login_status: null,
+            accounts: [],
         };
     },
+    methods: {
+        login() {
+            const existingAccount = this.accounts.find(account => {
+                return account.idcard === this.idcard;
+            });
+            if (existingAccount) {
+                if (existingAccount.password === this.password) {
+                    this.login_status = true
+                    localStorage.setItem('login_status', this.login_status)
+                    localStorage.setItem('signedInAccount', JSON.stringify(existingAccount))
+                    this.$router.push('/')
+                } else {
+                    alert('password wrong')
+                }
+            } else {
+                alert('email not found')
+            }
+        }
+    },
+    created() {
+        const accountData = localStorage.getItem('accounts');
+        if (accountData) {
+            this.accounts = JSON.parse(accountData);
+        }
+    }
+
 };
 </script>

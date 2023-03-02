@@ -48,18 +48,6 @@ const routes = [{
         component: () =>
             import ("../views/docinfo.vue"),
     },
-    {
-        path: "/addrole",
-        name: "addrole",
-        component: () =>
-            import ("../views/addRole.vue"),
-    },
-    {
-        path: "/alluser",
-        name: "alluser",
-        component: () =>
-            import ("../views/allUser.vue"),
-    },
 ];
 
 const router = createRouter({

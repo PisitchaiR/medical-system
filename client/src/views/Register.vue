@@ -34,21 +34,21 @@ hr {
                 <form class="space-y-[25px] " action="">
                     <div>
                         <input type="text" name="name" v-model="name" placeholder="name" class="bg-[#F9F9F9] text-[#111727] text-sm w-[36%] p-2.5 pl-16 rounded-[7px]
-                            focus:ring-2 focus:outline-none focus:ring-[#111727] ">
+                                focus:ring-2 focus:outline-none focus:ring-[#111727] ">
                         <hr class="w-[36%]">
                         <img src="../assets/User1.png" class="absolute mt-[-37px] h-[22px] pl-6 pointer-events-none">
                     </div>
 
                     <div class="">
                         <input type="text" name="idcard" v-model="idcard" placeholder="idcard" class="bg-[#F9F9F9] text-[#111727] text-sm w-[36%] p-2.5 pl-16 rounded-[7px]
-                            focus:ring-2 focus:outline-none focus:ring-[#111727] ">
+                                focus:ring-2 focus:outline-none focus:ring-[#111727] ">
                         <hr class="w-[36%]">
                         <img src="../assets/idcard.png" class="absolute mt-[-37px] pl-6 pointer-events-none">
                     </div>
 
                     <div class=" ">
                         <input :type="show === true ? 'text' : 'password'" name="password" placeholder="password" class="bg-[#F9F9F9] rounded-[7px] text-[#111727] text-sm p-2.5 pl-16 w-[36%]
-                            focus:ring-2 focus:outline-none focus:ring-[#111727] ">
+                                focus:ring-2 focus:outline-none focus:ring-[#111727] ">
                         <hr class="w-[36%]">
                         <img src="../assets/key.png" class="absolute mt-[-37px] pl-6 pointer-events-none">
                         <img src="../assets/eye.png" v-if="show" @click="show = !show"
@@ -59,7 +59,7 @@ hr {
 
                     <div>
                         <input type="text" name="phone" v-model="phone" placeholder="phone" class="bg-[#F9F9F9] text-[#111727] text-sm w-[36%] p-2.5 pl-16 rounded-[7px]
-                            focus:ring-2 focus:outline-none focus:ring-[#111727] ">
+                                focus:ring-2 focus:outline-none focus:ring-[#111727] ">
                         <hr class="w-[36%]">
                         <img src="../assets/telephone.png" class="absolute mt-[-37px] pl-6 h-[22px] pointer-events-none">
                     </div>
@@ -70,7 +70,7 @@ hr {
             <div class="px-[58px] mt-[65px] space-y-3">
                 <button type="text"
                     class="button text-white bg-[#111727] rounded-[7px] text-lg p-3 text-center mr-2 mb-2 w-[36%]"
-                    @click="this.$router.push('login')">Register</button>
+                    @click="register">Register</button>
             </div>
 
             <div class="absolute w-3/5  right-0 top-0 h-screen">
@@ -89,8 +89,36 @@ export default {
             idcard: '',
             password: '',
             phone: '',
-            show: false
+            show: false,
+            accounts: []
         };
     },
+    methods: {
+        register() {
+            const existingAccount = this.accounts.find(account => {
+                return account.idcard === this.idcard;
+            })
+            if (existingAccount) {
+                alert('email already exinst')
+            } else {
+                const newAccount = {
+                    id: this.accounts.length + 1,
+                    idcard: this.idcard,
+                    password: this.password,
+                    name: this.name,
+                    phone: this.phone,
+                }
+                this.accounts.push(newAccount)
+                localStorage.setItem('accounts', JSON.stringify(this.accounts))
+                this.$router.push('/login')
+            }
+        }
+    },
+    created() {
+        const accountData = localStorage.getItem('accounts');
+        if (accountData) {
+            this.accounts = JSON.parse(accountData);
+        }
+    }
 };
 </script>
