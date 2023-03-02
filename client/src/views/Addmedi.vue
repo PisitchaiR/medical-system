@@ -189,7 +189,6 @@ export default {
         this.value = 0
       } else {
         value.quantity--
-
       }
     },
     addToCart(product) {
@@ -230,7 +229,7 @@ export default {
     },
     past() {
       window.localStorage.setItem('cart', JSON.stringify(this.cart))
-      window.location.href = './'
+
     }
   },
   computed: {

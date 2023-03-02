@@ -39,6 +39,11 @@ const routes = [
     name: "all",
     component: () => import("../views/Allmedi.vue"),
   },
+  {
+    path: "/docinfo",
+    name: "docinfo",
+    component: () => import("../views/docinfo.vue"),
+  },
 ];
 
 const router = createRouter({
