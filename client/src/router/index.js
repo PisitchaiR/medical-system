@@ -18,23 +18,18 @@ const routes = [{
         name: "logiregistern",
         component: register,
     },
-    {
-        path: "/pay1",
-        name: "pay1",
-        component: () =>
-            import ("../views/Prescription.vue"),
-    },
+
     {
         path: "/pay2",
         name: "pay2",
         component: () =>
-            import ("../views/PatienPay.vue"),
+            import ("../views/patienPay.vue"),
     },
     {
         path: "/addmedi",
         name: "add",
         component: () =>
-            import ("../views/Addmedi.vue"),
+            import ("../views/addMedi.vue"),
     },
     {
         path: "/allmedi",
@@ -47,6 +42,30 @@ const routes = [{
         name: "docinfo",
         component: () =>
             import ("../views/docinfo.vue"),
+    },
+    {
+        path: "/doc",
+        name: "doc",
+        component: () =>
+            import ("../views/docHome.vue"),
+    },
+    {
+        path: "/alluser",
+        name: "alluser",
+        component: () =>
+            import ("../views/allUser.vue"),
+    },
+    {
+        path: "/pay1",
+        name: "pay1",
+        component: () =>
+            import ("../views/preScript.vue"),
+    },
+    {
+        path: "/addrole",
+        name: "addrole",
+        component: () =>
+            import ("../views/addRole.vue"),
     },
 ];
 

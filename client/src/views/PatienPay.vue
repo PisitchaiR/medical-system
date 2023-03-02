@@ -88,7 +88,7 @@
         <!-- button -->
         <div class="w-full lg:max-w-full lg:flex mb-[20px]">
           <div class="w-full md:w-1/2 px-3 ">
-            <button class="bg-black hover:bg-[#181818] text-white font-bold py-2 px-8 rounded-xl">
+            <button @click="this.$router.push('/')" class="bg-black hover:bg-[#181818] text-white font-bold py-2 px-8 rounded-xl">
               confirm
             </button>
           </div>

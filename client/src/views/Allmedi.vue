@@ -1,7 +1,7 @@
 <script setup>
 
 import { storeToRefs } from 'pinia'
-import { useFetchStore } from './../stores/counter.js'
+import { useFetchStore } from '../stores/counter.js'
 
 const counterStore = useFetchStore()
 const { allmedi } = storeToRefs(counterStore);

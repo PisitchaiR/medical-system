@@ -99,7 +99,7 @@ export default {
                     alert('password wrong')
                 }
             } else {
-                alert('email not found')
+                alert('we not found your account')
             }
         }
     },

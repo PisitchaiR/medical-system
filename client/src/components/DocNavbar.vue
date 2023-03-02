@@ -54,7 +54,7 @@ template {
 
           <div class="mr-[47px]">
             <router-link style="cursor: pointer; text-decoration: none" class="text-[20px] underline-1 mt-[3px]"
-              to="/pay1">
+              to="/addmedi">
               All patients
             </router-link>
             <div v-if="isOpen" class="border-[1px] bg-[#f5f6f8] border-black rounded-md absolute mt-8">
