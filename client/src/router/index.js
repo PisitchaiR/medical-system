@@ -67,6 +67,12 @@ const routes = [{
         component: () =>
             import ("../views/addRole.vue"),
     },
+    {
+        path: "/record",
+        name: "record",
+        component: () =>
+            import ("../views/recordUser.vue"),
+    },
 ];
 
 const router = createRouter({
