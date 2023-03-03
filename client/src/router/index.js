@@ -68,6 +68,12 @@ const routes = [{
             import ("../views/addRole.vue"),
     },
     {
+        path: "/userslip",
+        name: "userslip",
+        component: () =>
+            import ("../views/userSlip.vue"),
+    },
+    {
         path: "/record",
         name: "record",
         component: () =>
