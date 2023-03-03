@@ -67,6 +67,12 @@ const routes = [{
         component: () =>
             import ("../views/addRole.vue"),
     },
+    {
+        path: "/userslip",
+        name: "userslip",
+        component: () =>
+            import ("../views/userSlip.vue"),
+    },
 ];
 
 const router = createRouter({
