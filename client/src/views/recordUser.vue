@@ -14,13 +14,48 @@
 
 <template>
   <div>
-    <Nav />
-    <div class="container mx-auto mt-[50px]">
-      <div class="font-semibold">
-        <p class="text-lg">Record</p>
-      </div>
+  <Nav />
+  <div class="container mx-auto mt-[50px]">
+    <div class="font-semibold">
+      <p class="text-lg">Record</p>
+    </div>
 
-      <div v-for="(value, index) in cart" :key="index">
+    <div class="w-full border border-black mt-0.5 " v-for="(value, index) in cart"  :key="index" >
+        <div class="text-sm text-left text-gray-500 dark:text-gray-400" @click="showTable = !showTable">
+          <thead class="w-full h-full border-b-2 " >
+            <tr class="text-[#A0A0A0]   ">
+              <th scope="col" class="px-10 py-3">ชื่อยา</th>
+              <th scope="col" class="px-10 py-3">โรงพยาบาล</th>
+              <th scope="col" class="px-10 py-3 pr-0">ราคา</th>
+            </tr>
+            <tr class="text-black  whitespace-nowrap">
+              <th scope="col" class="px-10 py-3">{{ value.name }}</th>
+              <th scope="col" class="px-10 py-3">W & N</th>
+              <th scope="col" class="px-10 py-3 pr-0">{{ value.price }}</th>
+            </tr>
+          </thead>
+          <div class="border border-black">
+
+</div>
+          <tbody v-if="showTable" @click="showTable = !showTable" class="border-b-2 w-full h-full ">
+            
+            <tr class='clickable-row'>
+              <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">info</td>
+                <td>
+                </td>
+                <td class="px-6 py-4">รูปยา</td>
+              </tr>
+              <tr class='clickable-row'>
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">{{ value.info }}</td>
+                <td></td>
+                <td class="px-6 py-4"><img :src="value.pic" alt=""></td>
+              </tr>
+            </tbody>
+
+          </div>
+        </div>
+
+      <!-- <div v-for="(value, index) in cart " :key="index"  @click="showTable = !showTable" >
         <div class="w-full border border-black mt-5 ">
           <div class="py-3 px-8 flex justify-between">
             <div>
@@ -36,76 +71,31 @@
               <div>{{ value.price }}</div>
             </div>
           </div>
-         
         </div>
-      </div>
-      <!-- <div class="mt-[30px] px-6">
-                        <div class="border-2 border-black rounded-lg">
-                              <div class="px-2 py-2">
-                                    <div class="relative overflow-x-auto">
-                                          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                                                <thead
-                                                      class="text-sm text-gray-700 uppercase bg-white dark:bg-gray-800 border-collapse border border-slate-400 dark:text-gray-400">
-                                                      <tr>
-                                                            <th scope="col"
-                                                                  class="px-6 py-5 border-collapse border border-slate-400">
-                                                                  รายการยา
-                                                            </th>
-                                                            <th scope="col"
-                                                                  class="px-6 py-5 border-collapse border border-slate-400 text-end">
-                                                                  จำนวนชิ้น
-                                                            </th>
-                                                            <th scope="col" class="px-6 py-5 text-end">ราคาต่อชิ้น</th>
-                                                      </tr>
-                                                </thead>
-                                                <tbody>
-                                                      <tr class="bg-gray-100 dark:bg-gray-700" v-for="(value, index) in cart"
-                                                            :key="index">
-                                                            <th  v-if='value.name != ""' scope="row"
-                                                                  class="px-6 py-4 font-medium border-collapse border border-slate-400 text-gray-900 dark:text-white">
-                                                                  {{ value.name }}
-                                                            </th>
-                                                            <td
-                                                                  class="px-6 py-4 border-collapse border border-slate-400 text-end">
-                                                                  {{ value.quantity }}
-                                                            </td>
-                                                            <td
-                                                                  class="px-6 py-4 border-collapse border border-slate-400 text-end">
-                                                                  {{ value.price }} บาท
-                                                            </td>
-                                                      </tr>
-                                                </tbody>
-                                                <tfoot>
-                                                      <tr  class="font-semibold text-gray-900 dark:text-white dark:bg-black">
-                                                            <th scope="row"
-                                                                  class="px-6 py-3 text-base border-collapse border border-slate-400">
-                                                                  Total
-                                                            </th>
-                                                            <td
-                                                                  class="px-6 py-3 text-end border-collapse border border-slate-400">
-                                                                  {{ sumquantity }}
-                                                            </td>
-                                                            <td
-                                                                  class="px-6 py-3 text-end border-collapse border border-slate-400">
-                                                                  {{ totalPrice }} บาท
-                                                            </td>
-                                                      </tr>
-                                                </tfoot>
-                                          </table>
-                                    </div>
-                              </div>
-                        </div>
-                  </div> -->
+        </div>
 
-      <div class="flex justify-end items-end mt-[50px] px-16">
-        <div @click="this.$router.push('pay2')">
-          <button class="bg-black rounded-lg py-2 px-8 text-white item-end">
-            Next
-          </button>
+        <div v-for="(value, index) in cart" :key="index"  v-if="showTable">
+        <div class="w-full border border-black mt-5 ">
+          <div class="py-3 px-8 flex justify-between">
+            <div>
+              <div class="text-[#A0A0A0]">ชื่อยา</div>
+              <div>{{ value.name }}</div>
+            </div>
+            <div>
+              <div class="text-[#A0A0A0]">โรงพยาบาล</div>
+              <div>w&n</div>
+            </div>
+            <div>
+              <div class="text-[#A0A0A0]">ราคา</div>
+              <div>{{ value.price }}</div>
+            </div>
+          </div>
         </div>
+        </div> -->
+
+        
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -113,6 +103,7 @@ import Nav from "../components/Navbar.vue";
 export default {
   data: () => ({
     cart: [],
+    showTable: false
   }),
   computed: {
     sumPrice() {
