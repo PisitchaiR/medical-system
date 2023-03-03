@@ -30,7 +30,7 @@ hr {
             <div class="absolute z-[10] right-[22%] w-[28%] mt-[185px] border-2 rounded-xl bg-zinc-100 opacity-80 p-10">
                 <p class="text-2xl mb-3">Check your prescript order</p>
                 <hr>
-                <p class="mt-6">see your personal prescription <br> in <b>prescript</b> now</p>
+                <p class="mt-6">see your personal prescription <br> in <b class="text-red-500" @click="this.$router.push('/pay1')">prescript now</b> </p>
             </div>
         </div>
     </div>
