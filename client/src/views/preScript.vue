@@ -57,7 +57,7 @@
                                                       </tr>
                                                 </tbody>
                                                 <tfoot>
-                                                      <tr class="font-semibold text-gray-900 dark:text-white dark:bg-black">
+                                                      <tr  class="font-semibold text-gray-900 dark:text-white dark:bg-black">
                                                             <th scope="row"
                                                                   class="px-6 py-3 text-base border-collapse border border-slate-400">
                                                                   Total
@@ -121,7 +121,6 @@ export default {
 
       created() {
             this.cart = JSON.parse(localStorage.getItem('cart'))
-
       },
 
 
