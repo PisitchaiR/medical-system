@@ -1,89 +1,83 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import home from "../views/Home.vue";
-import login from "../views/Login.vue";
-import register from "../views/Register.vue";
+import home from "../views/user/Mainpage.vue";
+const routes = [
+  {
+    path: "/",
+    name: "home",
+    component: home,
+  },
+  {
+    path: "/docmain",
+    name: "doc",
+    component: () => import("../views/doctor/Mainpage.vue"),
+  },
+  {
+    path: "/usermain",
+    name: "user",
+    component: () => import("../views/user/Mainpage.vue"),
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: () => import("../views/Login.vue"),
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: () => import("../views/Register.vue"),
+  },
 
-const routes = [{
-        path: "/",
-        name: "home",
-        component: home,
-    },
-    {
-        path: "/login",
-        name: "login",
-        component: login,
-    },
-    {
-        path: "/register",
-        name: "logiregistern",
-        component: register,
-    },
+  {
+    path: "/payment1",
+    name: "payment1",
+    component: () => import("../views/user/Payment1.vue"),
+  },
+  {
+    path: "/payment2",
+    name: "payment2",
+    component: () => import("../views/user/Payment2.vue"),
+  },
+  {
+    path: "/docinfo",
+    name: "docinfo",
+    component: () => import("../views/doctor/Docinfo.vue"),
+  },
+  {
+    path: "/alldoctor",
+    name: "alldoctor",
+    component: () => import("../views/user/AllDoctor.vue"),
+  },
+  {
+    path: "/docinfo1",
+    name: "docinfo1",
+    component: () => import("../views/user/DocInfo1.vue"),
+  },
+  {
+    path: "/hospitalrecord",
+    name: "hospitalrecord",
+    component: () => import("../views/user/HospitalRecord.vue"),
+  },
+  {
+    path: "/userinfo",
+    name: "userinfo",
+    component: () => import("../views/user/UserInfo.vue"),
+  },
 
-    {
-        path: "/pay2",
-        name: "pay2",
-        component: () =>
-            import ("../views/patienPay.vue"),
-    },
-    {
-        path: "/addmedi",
-        name: "add",
-        component: () =>
-            import ("../views/addMedi.vue"),
-    },
-    {
-        path: "/allmedi",
-        name: "all",
-        component: () =>
-            import ("../views/Allmedi.vue"),
-    },
-    {
-        path: "/docinfo",
-        name: "docinfo",
-        component: () =>
-            import ("../views/docinfo.vue"),
-    },
-    {
-        path: "/doc",
-        name: "doc",
-        component: () =>
-            import ("../views/docHome.vue"),
-    },
-    {
-        path: "/alluser",
-        name: "alluser",
-        component: () =>
-            import ("../views/allUser.vue"),
-    },
-    {
-        path: "/pay1",
-        name: "pay1",
-        component: () =>
-            import ("../views/preScript.vue"),
-    },
-    {
-        path: "/addrole",
-        name: "addrole",
-        component: () =>
-            import ("../views/addRole.vue"),
-    },
-    {
-        path: "/userslip",
-        name: "userslip",
-        component: () =>
-            import ("../views/userSlip.vue"),
-    },
-    {
-        path: "/record",
-        name: "record",
-        component: () =>
-            import ("../views/recordUser.vue"),
-    },
+  {
+    path: "/adminrole",
+    name: "admin",
+    component: () => import("../views/admin/Addrole.vue"),
+  },
+  {
+    path: "/alluser",
+    name: "alluser",
+    component: () => import("../views/admin/Alluser.vue"),
+  },
 ];
 
 const router = createRouter({
-    history: createWebHashHistory(),
-    routes,
+  history: createWebHashHistory(),
+  routes,
 });
 
 export default router;

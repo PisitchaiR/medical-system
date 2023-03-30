@@ -1,124 +1,112 @@
-<style scoped>
-.underline1 {
-    background-image: linear-gradient(90deg, #111727, #FF5757);
-    background-size: 100% 3px;
-    background-repeat: no-repeat;
-    background-position: left bottom;
-    text-decoration: none;
-    background-repeat: no-repeat;
-    padding-bottom: 10px;
-    display: inline;
-    padding-right: 50px;
-}
-
-hr {
-    border-top: 2px solid #E3E3E5;
-    margin-top: 6px;
-}
-</style>
-
 <template>
-    <section>
-        <div class="relative">
-            <div class="w-full h-[80px] px-[35px] mb-[77px] place-items-start inline-flex">
-                <img src="../assets/logologin.png" class="w-[85px]">
-                <button @click="this.$router.push('Home')" class="py-6 text-2xl">{{ pname }}</button>
-            </div>
-
-            <div class="px-[58px] mb-[45px] space-y-10">
-                <p class="underline1 text-4xl">Register</p>
-                <p class="text-sm text-[#70737D]">Register, W&N Hospital is ready to serve you.</p>
-            </div>
-
-            <div class="px-[58px]">
-                <form class="space-y-[25px] " action="">
-                    <div>
-                        <input type="text" name="name" v-model="name" placeholder="name" class="bg-[#F9F9F9] text-[#111727] text-sm w-[36%] p-2.5 pl-16 rounded-[7px]
-                                focus:ring-2 focus:outline-none focus:ring-[#111727] ">
-                        <hr class="w-[36%]">
-                        <img src="../assets/User1.png" class="absolute mt-[-37px] h-[22px] pl-6 pointer-events-none">
-                    </div>
-
-                    <div class="">
-                        <input type="text" name="idcard" v-model="idcard" placeholder="idcard" class="bg-[#F9F9F9] text-[#111727] text-sm w-[36%] p-2.5 pl-16 rounded-[7px]
-                                focus:ring-2 focus:outline-none focus:ring-[#111727] ">
-                        <hr class="w-[36%]">
-                        <img src="../assets/idcard.png" class="absolute mt-[-37px] pl-6 pointer-events-none">
-                    </div>
-
-                    <div class=" ">
-                        <input :type="show === true ? 'text' : 'password'" name="password" placeholder="password" class="bg-[#F9F9F9] rounded-[7px] text-[#111727] text-sm p-2.5 pl-16 w-[36%]
-                                focus:ring-2 focus:outline-none focus:ring-[#111727] ">
-                        <hr class="w-[36%]">
-                        <img src="../assets/key.png" class="absolute mt-[-37px] pl-6 pointer-events-none">
-                        <img src="../assets/eye.png" v-if="show" @click="show = !show"
-                            class="absolute mt-[-37px] left-[34%] w-[27px] h-[24px] pr-1 ">
-                        <img src="../assets/Union.png" v-else @click="show = !show"
-                            class="absolute mt-[-37px] mr-10  left-[34%] ">
-                    </div>
-
-                    <div>
-                        <input type="text" name="phone" v-model="phone" placeholder="phone" class="bg-[#F9F9F9] text-[#111727] text-sm w-[36%] p-2.5 pl-16 rounded-[7px]
-                                focus:ring-2 focus:outline-none focus:ring-[#111727] ">
-                        <hr class="w-[36%]">
-                        <img src="../assets/telephone.png" class="absolute mt-[-37px] pl-6 h-[22px] pointer-events-none">
-                    </div>
-
-                </form>
-            </div>
-
-            <div class="px-[58px] mt-[65px] space-y-3">
-                <button type="text"
-                    class="button text-white bg-[#111727] rounded-[7px] text-lg p-3 text-center mr-2 mb-2 w-[36%]"
-                    @click="register">Register</button>
-            </div>
-
-            <div class="absolute w-3/5  right-0 top-0 h-screen">
-                <img class="bg-no-repeat h-full w-full rounded-l-[32px]" src="../assets/loginPic.png" alt="">
-            </div>
+  <AppLayout>
+    <div class="w-full h-full flex flex-col items-center flex-grow">
+      <!-- top -->
+      <div class="h-2/5 relative w-full">
+        <div class="bg-primary h-2/3 flex justify-center rounded-b-3xl">
+          <img class="absolute top-1/3" src="../assets/Navbar/Logo.png" alt="" />
         </div>
-    </section>
-</template>
+      </div>
+      <!-- body -->
+      <div class="w-fit flex flex-col items-center">
+        <p class="text-center text-4xl">Register</p>
+        <div class="bg-gradient-to-r w-full from-[#111727] to-[#FF5757] h-1 rounded-full mt-2"></div>
+      </div>
+      <div class="flex flex-col w-2/3 xl:w-1/3 mt-10 gap-y-5">
+        <input v-model='name' type="text" class="border border-black rounded-full p-2 px-4 text-lg" placeholder="Name" />
+        <input v-model='idcard' type="text" class="border border-black rounded-full p-2 px-4 text-lg"
+          placeholder="Id-card" />
+        <input v-model='password' type="text" class="border border-black rounded-full p-2 px-4 text-lg"
+          placeholder="password" />
+        <input v-model='phone' type="text" class="border border-black rounded-full p-2 px-4 text-lg"
+          placeholder="phone number" />
 
+        <button class="w-full bg-primary text-white text-lg font-semibold py-2 rounded-md mt-10" @click="register()">
+          Register
+        </button>
+        <p class="text-sm xl:text-md text-gray-400 text-center">Have an account? <a @click="this.$router.push('/login')"
+            class="text-black/70 cursor-pointer">Back to login ✨</a></p>
+
+      </div>
+    </div>
+  </AppLayout>
+</template>
+  
 <script>
+import AppLayout from "../components/AppLayout.vue";
+import Nav from "../components/users/MainNav.vue";
+import axios from "axios";
 export default {
-    data() {
-        return {
-            pname: "W&N",
-            name: '',
-            idcard: '',
-            password: '',
-            phone: '',
-            show: false,
-            accounts: []
-        };
-    },
-    methods: {
-        register() {
-            const existingAccount = this.accounts.find(account => {
-                return account.idcard === this.idcard;
-            })
-            if (existingAccount) {
-                alert('email already exinst')
-            } else {
-                const newAccount = {
-                    id: this.accounts.length + 1,
-                    idcard: this.idcard,
-                    password: this.password,
-                    name: this.name,
-                    phone: this.phone,
-                }
-                this.accounts.push(newAccount)
-                localStorage.setItem('accounts', JSON.stringify(this.accounts))
-                this.$router.push('/login')
-            }
+  components: {
+    AppLayout,
+    Nav,
+  },
+  data() {
+    return {
+      lastcard: ["Name", "Id-card", "password", "phone number"],
+      name: '', idcard: '', password: '', phone: ''
+    };
+  },
+  methods: {
+    // ifelse condition
+    async showAlert() {
+      // Use sweetalert2
+      const Toast = await this.$swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', this.$swal.stopTimer)
+          toast.addEventListener('mouseleave', this.$swal.resumeTimer)
         }
+      })
+
+      Toast.fire({
+        icon: 'success',
+        title: 'Signed in successfully'
+      })
     },
-    created() {
-        const accountData = localStorage.getItem('accounts');
-        if (accountData) {
-            this.accounts = JSON.parse(accountData);
+    async register() {
+      const data = {
+        name: this.name, idCard: this.idcard, password: this.password, phone: this.phone
+      }
+      console.log(data);
+      if (this.name !== '' && this.idCard !== '' && this.password !== '' && this.phone !== '') {
+        const result = await axios.post('http://localhost:8080/api/auth/register', data)
+        console.log(result.data)
+        if (result.data.status === "errorid") {
+          this.$swal.fire(
+            'Idcard already use!',
+            'You clicked the button!',
+            'error'
+          )
         }
+        else if (result.data.status === "errorphone") {
+          this.$swal.fire(
+            'Phonenumber already use!',
+            'You clicked the button!',
+            'error'
+          )
+        } else {
+
+          await this.showAlert()
+          await this.$router.push('/login')
+        }
+      }
+      else {
+        this.$swal.fire(
+          'Please enter all inputs !',
+          'You clicked the button!',
+          'error'
+        )
+      }
+
     }
+  },
 };
 </script>
+  
+<style></style>
+  

@@ -1,114 +1,101 @@
-<style scoped>
-.underline1 {
-    background-image: linear-gradient(90deg, #111727, #FF5757);
-    background-size: 100% 3px;
-    background-repeat: no-repeat;
-    background-position: left bottom;
-    text-decoration: none;
-    background-repeat: no-repeat;
-    padding-bottom: 10px;
-    display: inline;
-    padding-right: 50px;
-}
-
-hr {
-    border-top: 2px solid #E3E3E5;
-    margin-top: 6px;
-}
-</style>
-
 <template>
-    <section>
-        <div class="relative ">
-            <div class="w-full h-[80px] px-[35px] mb-[77px] place-items-start inline-flex ">
-                <img src="../assets/logologin.png" class="w-[85px]">
-                <button class="py-6 text-2xl" @click="this.$router.push('/')">{{ pname }}</button>
-            </div>
-
-            <div class="px-[58px] mb-[45px] space-y-10">
-                <p class="underline1 text-4xl font-bold">Welcome</p>
-                <p class="text-sm text-[#70737D] font-medium">Login, W&N Hospital is ready to serve you.</p>
-            </div>
-
-            <div class="px-[58px]">
-                <form action="">
-                    <div class="">
-                        <input type="text" name="idcard" v-model="idcard" placeholder="idcard" class="h-[37px] bg-[#F9F9F9] text-[#111727] text-md w-[36%] p-2.5 pl-16 rounded-[7px]
-                                                    focus:ring-2 focus:outline-none focus:ring-[#111727] ">
-                        <hr class="w-[36%]">
-                        <img src="../assets/idcard.png" class="absolute mt-[-37px] pl-6 pointer-events-none">
-                    </div>
-
-                    <div class="mt-[50px] ">
-                        <input :type="show === true ? 'text' : 'password'" name="password" placeholder="password" class="h-[37px] bg-[#F9F9F9] rounded-[7px] text-[#111727]  text-md  p-2.5 pl-16 w-[36%]
-                                                    focus:ring-2 focus:outline-none focus:ring-[#111727] ">
-                        <hr class="w-[36%]">
-                        <img src="../assets/key.png" class="absolute mt-[-37px] pl-6 pointer-events-none">
-                        <img src="../assets/Union.png" v-if="show" @click="show = !show"
-                            class="absolute  mt-[-37px] mr-10  left-[34%] ">
-                        <img src="../assets/eye.png" v-else @click="show = !show"
-                            class="absolute mt-[-37px] left-[34%] w-[27px] h-[24px] pr-1 ">
-                    </div>
-                </form>
-            </div>
-
-            <div class="px-[58px] mt-[65px] space-y-3">
-                <button type="text"
-                    class="button text-white bg-[#111727] rounded-[7px] text-lg p-3 text-center mr-2 mb-2 w-[36%]"
-                    @click="login">Login</button>
-                <div>
-                    <p class="text-[#858A91] text-sm text-center w-[36%]">Don’t have an account? <button
-                            @click="this.$router.push('register')" class="text-[#43474E] underline">Sign up free </button>
-                        <button @click="this.$router.push('register')" class="text-[#43474E]">✨</button>
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="w-3/5 absolute right-0 top-0 h-screen ">
-                <img class="bg-no-repeat h-full w-full rounded-l-[32px]" src="../assets/loginPic.png">
-            </div>
+  <AppLayout>
+    <div class="w-full h-full flex flex-col items-center flex-grow">
+      <!-- top -->
+      <div class="h-2/5 relative w-full">
+        <div class="bg-primary h-2/3 flex justify-center rounded-b-3xl">
+          <img class="absolute top-1/3" src="../assets/Navbar/Logo.png" alt="" />
         </div>
-    </section>
+      </div>
+      <!-- body -->
+      <div class="w-fit flex flex-col items-center">
+        <p class="text-center text-4xl">Welcome</p>
+        <div class="bg-gradient-to-r w-full from-[#111727] to-[#FF5757] h-1 rounded-full mt-2"></div>
+        <p class="text-[#70737D] text-md mt-3">Login, W&N Hospital is ready to serve you.</p>
+      </div>
+      <div class="flex flex-col w-2/3 xl:w-1/3 mt-10 gap-y-5">
+        <input v-model="idcard" type="text" class="border border-black rounded-full p-2 px-4 text-lg"
+          placeholder="Id-card" />
+        <input v-model='password' type="text" class="border border-black rounded-full p-2 px-4 text-lg"
+          placeholder="password" />
+        <button class="w-full bg-primary text-white  text-lg font-semibold py-2 rounded-md mt-10 "
+          @click="login()">Login</button>
+        <p class="text-sm xl:text-md text-gray-400 text-center">Don’t have an account? <a
+            @click="this.$router.push('/Register')" class="text-black/70 cursor-pointer">Sign up
+            free ✨</a></p>
+      </div>
+    </div>
+  </AppLayout>
 </template>
 
 <script>
+import AppLayout from "../components/AppLayout.vue";
+import Nav from "../components/users/MainNav.vue";
+import axios from 'axios';
 export default {
-    data() {
-        return {
-            pname: "W&N",
-            idcard: '',
-            password: '',
-            show: false,
-            login_status: null,
-            accounts: [],
-        };
-    },
-    methods: {
-        login() {
-            const existingAccount = this.accounts.find(account => {
-                return account.idcard === this.idcard;
-            });
-            if (existingAccount) {
-                if (existingAccount.password === this.password) {
-                    this.login_status = true
-                    localStorage.setItem('login_status', this.login_status)
-                    localStorage.setItem('signedInAccount', JSON.stringify(existingAccount))
-                    this.$router.push('/')
-                } else {
-                    alert('password wrong')
-                }
-            } else {
-                alert('we not found your account')
-            }
-        }
-    },
-    created() {
-        const accountData = localStorage.getItem('accounts');
-        if (accountData) {
-            this.accounts = JSON.parse(accountData);
-        }
+  data() {
+    return {
+      idcard: '',
+      password: ''
     }
+  },
+  components: {
+    AppLayout,
+    Nav,
+  },
+  methods: {
+    // ifelse condition
+    async showAlert() {
+      // Use sweetalert2
+      const Toast = await this.$swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', this.$swal.stopTimer)
+          toast.addEventListener('mouseleave', this.$swal.resumeTimer)
+        }
+      })
 
+      Toast.fire({
+        icon: 'success',
+        title: 'Signed in successfully'
+      })
+    },
+
+
+    async login() {
+      try {
+        const data = {
+          idCard: this.idcard, password: this.password
+        }
+        console.log(data);
+        const res = await axios.post('http://localhost:8080/api/auth/login', data)
+        console.table(res.data)
+        await this.showAlert();
+        await this.$router.push('/');
+      } catch (error) {
+        console.log(error.response.data.message)
+        if (error.response.data.message == 'Wrong password') {
+          this.$swal.fire(
+            'Wrong password!',
+            'You clicked the button!',
+            'error')
+        }
+        else {
+          this.$swal.fire(
+            'User not found!',
+            'You clicked the button!',
+            'error'
+          )
+        }
+      }
+
+    }
+  },
 };
 </script>
+
+<style></style>
